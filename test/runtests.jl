@@ -1,6 +1,3 @@
-using DiscO
-using Test
+using SafeTestsets
 
-@testset "DiscO.jl" begin
-    # Write your own tests here.
-end
+@safetestset "Fitnessses Tests" begin include("fitnesses_tests.jl") end
