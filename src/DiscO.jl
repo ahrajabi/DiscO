@@ -1,14 +1,13 @@
 module DiscO
 
-greet() = print("Hello World!")
-
+using Random, Distributions, DataFrames
 include("fitnesses.jl")
 
 export onemax, zeromax, fractionmax
 
 include("mutations.jl")
 
-export staticBitMutation
+export staticBitMutation, flip
 
 include("db.jl")
 
