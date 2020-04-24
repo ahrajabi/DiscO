@@ -1,7 +1,6 @@
 using DiscO
 using Test
 
-
 @testset "Fitnesses" begin
     # OneMax
     @test OneMax((), [1]) == 1
