@@ -1,13 +1,13 @@
 
 function staticBitMutation(prob)
-    function _Mutation(instance, candidate)
-        tmp = copy(candidate)
-        for item in 1:length(tmp)
+    function _Mutation(instance, candidate, fitness)
+        tmp = deepcopy(candidate.point)
+        for item in 1:instance["size"]
             if rand() < prob
-                tmp[item] = 1-tmp[item]
+                tmp[item] = ~tmp[item]
             end
         end
-        tmp
+        (point=tmp, fitness=fitness(instance, tmp))
     end
     _Mutation
 end

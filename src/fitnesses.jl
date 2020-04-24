@@ -2,18 +2,18 @@ using Random
 
 ## Binary string fitnesses
 
-function OneMax(instance, candidate)
-    sum(candidate)
+function onemax(instance:: Dict{String, }, point::BitArray{1})
+    sum(point)
 end
 
-function ZeroMax(instance, candidate)
-    length(candidate) - sum(candidate)
+function zeromax(instance:: Dict{String, }, point::BitArray{1})
+    length(point) - sum(point)
 end
 
-function OneMaxF(instance, fraction)
-    return function _F(instance, candidate)
+function fractionmax(instance:: Dict{String, }, fraction::Float64)
+    return function _F(instance, point)
         ## length(candidate)*fraction
-        lastZero = Int(length(candidate)*fraction)
-        ZeroMaxFitness(instance, candidate[1:lastZero]) + OneMaxFitness(instance, candidate[lastZero+1:end])
+        lastZero = Int(instance["size"]*fraction)
+        ZeroMaxFitness(instance, point[1:lastZero]) + OneMaxFitness(instance, point[lastZero+1:end])
     end
 end
